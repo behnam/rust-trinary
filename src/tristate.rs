@@ -14,37 +14,49 @@ pub enum TriState {
     No,
 
     /// The tri-state value signifying an unknown truth value.
-    Unknown
+    Unknown,
 }
 
 impl TriState {
     /// Is `self` equal to `Yes`?
-    pub fn yes(self) -> bool { self == TriState::Yes }
+    pub fn yes(self) -> bool {
+        self == TriState::Yes
+    }
 
     /// Is `self` equal to `No`?
-    pub fn no(self) -> bool { self == TriState::No }
+    pub fn no(self) -> bool {
+        self == TriState::No
+    }
 
     /// Is `self` equal to `Unknown`?
-    pub fn unknown(self) -> bool { self == TriState::Unknown }
+    pub fn unknown(self) -> bool {
+        self == TriState::Unknown
+    }
 
     /// A mnemonic for `yes()`.
-    pub fn definitely(self) -> bool { self.yes() }
+    pub fn definitely(self) -> bool {
+        self.yes()
+    }
 
     /// A mnemonic for `no()`.
-    pub fn definitely_not(self) -> bool { self.no() }
+    pub fn definitely_not(self) -> bool {
+        self.no()
+    }
 
     /// Converts `self` to an `Option<bool>`. Equivalent to `Option::<bool>::from(self)`.
     pub fn to_bool(self) -> Option<bool> {
         match self {
             TriState::Yes => Some(true),
             TriState::No => Some(false),
-            TriState::Unknown => None
+            TriState::Unknown => None,
         }
     }
 }
 
 impl From<TriState> for Option<bool> {
-    fn from(t: TriState) -> Option<bool> { t.to_bool() }
+    fn from(t: TriState) -> Option<bool> {
+        t.to_bool()
+    }
 }
 
 impl From<Option<bool>> for TriState {
@@ -52,7 +64,7 @@ impl From<Option<bool>> for TriState {
         match b {
             Some(true) => TriState::Yes,
             Some(false) => TriState::No,
-            None => TriState::Unknown
+            None => TriState::Unknown,
         }
     }
 }
@@ -61,11 +73,13 @@ impl From<bool> for TriState {
     fn from(b: bool) -> TriState {
         match b {
             true => TriState::Yes,
-            false => TriState::No
+            false => TriState::No,
         }
     }
 }
 
 impl Default for TriState {
-    fn default() -> Self { TriState::Unknown }
+    fn default() -> Self {
+        TriState::Unknown
+    }
 }
