@@ -1,4 +1,8 @@
-# TriState
+# Trinary — Rust types for trinary logic
+
+----
+
+Based on [TriState](https://github.com/dherman/tristate) code base.
 
 A three-valued type equivalent to `Option<bool>`:
 

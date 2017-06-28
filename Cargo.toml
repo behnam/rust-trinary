@@ -1,10 +1,10 @@
 [package]
-name = "tristate"
-description = "A three-valued type equivalent to Option<bool>."
+name = "trinary"
+description = "Rust types for trinary logic."
 license = "MIT/Apache-2.0"
 version = "0.1.1"
 authors = ["Dave Herman <dherman@mozilla.com>"]
-documentation = "https://docs.rs/tristate"
-repository = "https://github.com/dherman/tristate"
+documentation = "https://docs.rs/trinary"
+repository = "https://github.com/behnam/trinary"
 
 [dependencies]
