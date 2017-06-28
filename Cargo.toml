@@ -1,6 +1,6 @@
 [package]
 name = "trinary"
-description = "Rust types for trinary logic."
+description = "Rust types for trinary and epistemic logic."
 license = "MIT/Apache-2.0"
 version = "0.1.2"
 documentation = "https://docs.rs/trinary"

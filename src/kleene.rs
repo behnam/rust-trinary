@@ -4,8 +4,8 @@ use std::default::Default;
 /// A three-valued type equivalent to `Option<bool>`.
 ///
 /// It also provides several convenience methods for testing tri-state values.
-#[derive(Debug, Clone, Copy, Eq, PartialEq, Ord, PartialOrd)]
-pub enum TriState {
+#[derive(Debug, Clone, Copy)]
+pub enum Kleene {
     /// The tri-state value signifying definitive truth.
     True,
 
@@ -16,59 +16,68 @@ pub enum TriState {
     Unknown,
 }
 
-impl TriState {
+impl Kleene {
     /// Is `self` equal to `True`?
     pub fn is_true(self) -> bool {
-        self == TriState::True
+        match self {
+            Kleene::True => true,
+            _ => false,
+        }
     }
 
     /// Is `self` equal to `False`?
     pub fn is_false(self) -> bool {
-        self == TriState::False
+        match self {
+            Kleene::False => true,
+            _ => false,
+        }
     }
 
     /// Is `self` equal to `Unknown`?
     pub fn is_unknown(self) -> bool {
-        self == TriState::Unknown
+        match self {
+            Kleene::Unknown => true,
+            _ => false,
+        }
     }
 
     /// Converts `self` to an `Option<bool>`. Equivalent to `Option::<bool>::from(self)`.
     pub fn to_bool(self) -> Option<bool> {
         match self {
-            TriState::True => Some(true),
-            TriState::False => Some(false),
-            TriState::Unknown => None,
+            Kleene::True => Some(true),
+            Kleene::False => Some(false),
+            Kleene::Unknown => None,
         }
     }
 }
 
-impl From<TriState> for Option<bool> {
-    fn from(t: TriState) -> Option<bool> {
+impl From<Kleene> for Option<bool> {
+    fn from(t: Kleene) -> Option<bool> {
         t.to_bool()
     }
 }
 
-impl From<Option<bool>> for TriState {
-    fn from(b: Option<bool>) -> TriState {
+impl From<Option<bool>> for Kleene {
+    fn from(b: Option<bool>) -> Kleene {
         match b {
-            Some(true) => TriState::True,
-            Some(false) => TriState::False,
-            None => TriState::Unknown,
+            Some(true) => Kleene::True,
+            Some(false) => Kleene::False,
+            None => Kleene::Unknown,
         }
     }
 }
 
-impl From<bool> for TriState {
-    fn from(b: bool) -> TriState {
+impl From<bool> for Kleene {
+    fn from(b: bool) -> Kleene {
         match b {
-            true => TriState::True,
-            false => TriState::False,
+            true => Kleene::True,
+            false => Kleene::False,
         }
     }
 }
 
-impl Default for TriState {
+impl Default for Kleene {
     fn default() -> Self {
-        TriState::Unknown
+        Kleene::Unknown
     }
 }
