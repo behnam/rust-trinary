@@ -2,9 +2,12 @@
 name = "trinary"
 description = "Rust types for trinary logic."
 license = "MIT/Apache-2.0"
-version = "0.1.1"
-authors = ["Dave Herman <dherman@mozilla.com>"]
+version = "0.1.2"
 documentation = "https://docs.rs/trinary"
 repository = "https://github.com/behnam/trinary"
+authors = [
+    "Behnam Esfahbod <behnam@zwnj.org>",
+    "Dave Herman <dherman@mozilla.com>"
+]
 
 [dependencies]
